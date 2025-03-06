@@ -11,9 +11,9 @@ function Index2() {
                       <div className="col-lg-4 col-12">
                         <div className="banner__content wow fadeInLeft" data-wow-duration="1.5s">
                           <div className="banner__title">
-                            <h2>New Places, Unforgettable Dating.</h2>
-                            <p>Join our international family today! Please call us for more info.</p>
-                            <a href="membership.html" className="default-btn style-2"><span>Get A Membership</span></a>
+                            <h2>Welcome to SoulFullConnects</h2>
+                            <p>At SoulFullConnects, we help you create meaningful connections, find your soulmate, and explore self-discovery. Whether you're seeking friends or spiritual guidance, our platform supports your journey. Join us to heal, grow, and connect with others on a deeper level</p>
+                            <a href="register" className="default-btn style-2"><span>Get Started</span></a>
                           </div>
                         </div>
                       </div>

@@ -32,9 +32,9 @@ function About() {
                     </div>
                     <div className="col-lg-6 col-12">
                       <div className="about__content">
-                        <h2>Hello My Friend</h2>
-                        <h5>We are here to build emotion, connect people and create happy stories.</h5>
-                        <p>Seeko is a friendly dating theme based on BuddyPress for the community functionality. It allows you to easily create and community for dating. You can add your own branding text and images right away.</p>
+                        <h2>Our Mission</h2>
+                        <h5>Our Mission</h5>
+                        <p>At SoulFullConnects, we strive to create meaningful connections between individuals seeking love, friendship, or personal growth. Our goal is to facilitate a journey of self-discovery that can help you find your soulmate or simply learn more about yourself.</p>
                         <a href="membership.html" className="default-btn reverse"><span>Get A Membership</span></a>
                       </div>
                     </div>
