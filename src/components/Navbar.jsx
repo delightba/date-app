@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
@@ -37,7 +38,7 @@ function Navbar() {
         <div className="header__bottom">
           <div className="container">
             <nav className="navbar navbar-expand-lg w-100 justify-content-center">
-              <a className="navbar-brand" href="/"><img src="assets/images/logo/logo.png" alt="logo" /></a>
+              <Link className="navbar-brand" to="/"><img src="assets/images/logo/logo.png" alt="logo" /></Link>
               <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler--icon" />
               </button>
@@ -45,53 +46,26 @@ function Navbar() {
                 <div className="navbar-nav mainmenu">
                   <ul>
                     <li>
-                      <a href="/">Home</a>
-                      {/* <ul>
-                        <li><a href="Home">Home Page One</a></li>
-                      </ul> */}
+                      <Link to="/">Home</Link>
                     </li>
                     <li className="active">
-                      <a href="about">Pricing</a>
-                      {/* <ul>
-                        <li><a href="about.html" className="active">About Us</a></li>
-                        <li><a href="membership.html">Membership</a></li>
-                        <li><a href="comingsoon.html">comingsoon</a></li>
-                        <li><a href="404.html">404</a></li>
-                      </ul> */}
+                      <Link to="/pricing">Pricing</Link>
                     </li>
                     <li>
-                      {/* <a href="#0">Community</a>
-                      <ul>
-                        <li><a href="community.html">Community</a></li>
-                        <li><a href="group.html">All Group</a></li>
-                        <li><a href="members.html">All Members</a></li>
-                        <li><a href="activity.html">Activity</a></li>
-                      </ul> */}
                     </li>
                     <li>
-                      {/* <a href="#0">Shops</a>
-                      <ul>
-                        <li><a href="shop.html">Product</a></li>
-                        <li><a href="shop-single.html">Product Details</a></li>
-                        <li><a href="shop-cart.html">Product Cart</a></li>
-                      </ul> */}
                     </li>
                     <li>
-                      <a href="about">About</a>
-                      {/* <ul>
-                        <li><a href="about">About</a></li>
-                        <li><a href="blog-2.html">Blog Style Two</a></li>
-                        <li><a href="blog-single.html">Blog Details</a></li>
-                      </ul> */}
+                      <Link to="/about">About</Link>
                     </li>
-                    <li><a href="contact">contact</a></li>
+                    <li><Link to="/contact">Contact</Link></li>
                   </ul>
                 </div>
                 <div className="header__more">
                   <button className="default-btn dropdown-toggle" type="button" id="moreoption" data-bs-toggle="dropdown" aria-expanded="false">My Account</button>
                   <ul className="dropdown-menu" aria-labelledby="moreoption">
-                    <li><a className="dropdown-item" href="login">Log in</a></li>
-                    <li><a className="dropdown-item" href="Register">Sign Up</a></li>
+                    <li><Link className="dropdown-item" to="/login">Log in</Link></li>
+                    <li><Link className="dropdown-item" to="/register">Sign Up</Link></li>
                   </ul>
                 </div>
               </div>

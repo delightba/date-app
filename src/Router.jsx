@@ -16,13 +16,13 @@ function AppRouter() {
     <Router>
       <Navbar />
       <Routes>
-      <Route path="/" element={<Index2 />} />
+        <Route path="/" element={<Index2 />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/about" element={<About />} />
         <Route path="/home" element={<Index />} />
         <Route path="/home3" element={<Index3 />} />
-        <Route path="/about" element={<Blog />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
         {/* Add more routes as needed */}
         <Route path="*" element={<NotFound />} /> {/* Fallback route */}
