@@ -47,8 +47,8 @@ function Index2() {
                         <div className="about__left">
                           <div className="about__top">
                             <div className="about__content">
-                              <h3>Welcome To Our Ollya</h3>
-                              <p>You find us, finally, and you are already in love. More than 4.000.000 around the world already shared the same experiences and uses our system. Joining us today just got easier!</p>
+                              <h3>Welcome To Our SoulFullConnect</h3>
+                              <p>You've found us at last, and you're already in love. Join over 5,000 people worldwide who trust and use our system. Becoming a part of our community has never been easier!</p>
                             </div>
                           </div>
                           <div className="about__bottom">

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DisclaimerModal from '../components/DisclaimerModal'; // Import the DisclaimerModal component
-import { PaystackButton } from 'react-paystack'; // Import PaystackButton
 
 function Register() {
   const [pictures, setPictures] = useState(Array(5).fill(null));
   const [bio, setBio] = useState('');
   const [uniqueID, setUniqueID] = useState('');
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,22 +23,29 @@ function Register() {
     return Math.floor(1000 + Math.random() * 9000).toString();
   };
 
-  const handlePaymentSuccess = (reference) => {
-    console.log('Payment successful', reference);
-    navigate('/profile'); // Redirect to the profile page
+  const validateForm = () => {
+    const newErrors = {};
+    if (!document.getElementById('username').value) newErrors.username = 'Username is required';
+    if (!document.getElementById('email').value) newErrors.email = 'Email is required';
+    if (!document.getElementById('password').value) newErrors.password = 'Password is required';
+    if (!document.getElementById('confirmPassword').value) newErrors.confirmPassword = 'Confirm Password is required';
+    if (!document.getElementById('name').value) newErrors.name = 'Name is required';
+    if (!document.getElementById('birthday').value) newErrors.birthday = 'Birthday is required';
+    if (!document.querySelector('input[name="gender1"]:checked')) newErrors.gender1 = 'Gender is required';
+    if (!document.querySelector('input[name="gender2"]:checked')) newErrors.gender2 = 'Looking for is required';
+    if (!document.getElementById('maritalStatus').value) newErrors.maritalStatus = 'Marital status is required';
+    if (!document.getElementById('city').value) newErrors.city = 'City is required';
+    if (!bio) newErrors.bio = 'Bio is required';
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handlePaymentClose = () => {
-    console.log('Payment closed');
-  };
-
-  const paystackConfig = {
-    reference: uniqueID,
-    email: '', // User's email
-    amount: 3999000, // Amount in kobo
-    publicKey: 'pk_test_a93d6406bb779352085e98da651c1c40fa398865', // Your public key
-    onSuccess: handlePaymentSuccess,
-    onClose: handlePaymentClose,
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log('Submit button clicked');
+      navigate('/questionnaire'); // Redirect to the questionnaire page
+    }
   };
 
   const handlePictureChange = (index, e) => {
@@ -49,12 +56,6 @@ function Register() {
 
   const handleBioChange = (e) => {
     setBio(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Submit button clicked');
-    document.getElementById('paystack-button').click();
   };
 
   return (
@@ -82,7 +83,7 @@ function Register() {
             <div className="col-lg-7">
               <div className="log-reg-inner">
                 <div className="section-header">
-                  <h2 className="title">Welcome to Ollya </h2>
+                  <h2 className="title">Welcome to SoulFullConnect </h2>
                   <p>Let's create your profile! Just fill in the fields below, and we’ll get a new account. </p>
                 </div>
                 <div className="main-content">
@@ -90,28 +91,34 @@ function Register() {
                     <h4 className="content-title">Account Details</h4>
                     <div className="form-group">
                       <label>Username*</label>
-                      <input type="text" className="my-form-control" placeholder="Enter Your Username" />
+                      <input type="text" id="username" className="my-form-control" placeholder="Enter Your Username" />
+                      {errors.username && <p className="error">{errors.username}</p>}
                     </div>
                     <div className="form-group">
                       <label>Email Address*</label>
-                      <input type="email" className="my-form-control" placeholder="Enter Your Email" />
+                      <input type="email" id="email" className="my-form-control" placeholder="Enter Your Email" />
+                      {errors.email && <p className="error">{errors.email}</p>}
                     </div>
                     <div className="form-group">
                       <label>Password*</label>
-                      <input type="text" className="my-form-control" placeholder="Enter Your Password" />
+                      <input type="text" id="password" className="my-form-control" placeholder="Enter Your Password" />
+                      {errors.password && <p className="error">{errors.password}</p>}
                     </div>
                     <div className="form-group">
                       <label>Confirm Password*</label>
-                      <input type="text" className="my-form-control" placeholder="Enter Your Password" />
+                      <input type="text" id="confirmPassword" className="my-form-control" placeholder="Enter Your Password" />
+                      {errors.confirmPassword && <p className="error">{errors.confirmPassword}</p>}
                     </div>
                     <h4 className="content-title mt-5">Profile Details</h4>
                     <div className="form-group">
                       <label>Name*</label>
-                      <input type="text" className="my-form-control" placeholder="Enter Your Full Name" />
+                      <input type="text" id="name" className="my-form-control" placeholder="Enter Your Full Name" />
+                      {errors.name && <p className="error">{errors.name}</p>}
                     </div>
                     <div className="form-group">
                       <label>Birthday*</label>
-                      <input type="date" className="my-form-control" />
+                      <input type="date" id="birthday" className="my-form-control" />
+                      {errors.birthday && <p className="error">{errors.birthday}</p>}
                     </div>
                     <div className="form-group">
                       <label>I am a*</label>
@@ -123,6 +130,7 @@ function Register() {
                           <input type="radio" name="gender1" id="females1" /><label htmlFor="females1">Woman</label>
                         </div>
                       </div>
+                      {errors.gender1 && <p className="error">{errors.gender1}</p>}
                     </div>
                     <div className="form-group">
                       <label>Looking for a*</label>
@@ -134,19 +142,22 @@ function Register() {
                           <input type="radio" name="gender2" id="females" /><label htmlFor="females">Woman</label>
                         </div>
                       </div>
+                      {errors.gender2 && <p className="error">{errors.gender2}</p>}
                     </div>
                     <div className="form-group">
                       <label>Marital status*</label>
                       <div className="banner__inputlist">
-                        <select>
+                        <select id="maritalStatus">
                           <option value="Single" selected>Single</option>
                           <option value="Married">Married</option>
                         </select>
                       </div>
+                      {errors.maritalStatus && <p className="error">{errors.maritalStatus}</p>}
                     </div>
                     <div className="form-group">
                       <label>City*</label>
-                      <input type="text" className="my-form-control" placeholder="Enter Your City" />
+                      <input type="text" id="city" className="my-form-control" placeholder="Enter Your City" />
+                      {errors.city && <p className="error">{errors.city}</p>}
                     </div>
                     <div className="form-group">
                       <label>Unique ID*</label>
@@ -178,15 +189,10 @@ function Register() {
                     <div className="form-group">
                       <label>Bio*</label>
                       <textarea className="my-form-control" placeholder="Write a short bio about yourself" value={bio} onChange={handleBioChange}></textarea>
+                      {errors.bio && <p className="error">{errors.bio}</p>}
                     </div>
                     <button type="submit" className="default-btn reverse"><span>Create Your Profile</span></button>
                   </form>
-                  <PaystackButton
-                    id="paystack-button"
-                    className="default-btn reverse"
-                    {...paystackConfig}
-                    text="Pay $39.99"
-                  />
                 </div>
               </div>
             </div>

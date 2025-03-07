@@ -10,6 +10,11 @@ import Index2 from './pages/Index2';
 import Index3 from './pages/Index3';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Dashboard from './pages/Dashboard'; // Import the Dashboard component
+import Questionnaire from './pages/Questionnaire'; // Import the Questionnaire component
+import Payment from './pages/Payment'; // Import the Payment component
+import './pages/Dashboard.css'; // Ensure the Dashboard component imports the CSS file
+import './pages/Register.css'; // Ensure the Register component imports the CSS file
 
 function AppRouter() {
   return (
@@ -24,6 +29,9 @@ function AppRouter() {
         <Route path="/home3" element={<Index3 />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/dashboard" element={<Dashboard />} /> {/* Add Dashboard route */}
+        <Route path="/questionnaire" element={<Questionnaire />} /> {/* Add Questionnaire route */}
+        <Route path="/payment" element={<Payment />} /> {/* Add Payment route */}
         {/* Add more routes as needed */}
         <Route path="*" element={<NotFound />} /> {/* Fallback route */}
       </Routes>

@@ -30,7 +30,7 @@ function Login() {
                   <div className="col-lg-7">
                     <div className="log-reg-inner">
                       <div className="section-header inloginp">
-                        <h2 className="title">Welcome to Ollya</h2>
+                        <h2 className="title">Welcome to SoulFullConnect</h2>
                       </div>
                       <div className="main-content inloginp">
                         <form action="#">
@@ -52,7 +52,7 @@ function Login() {
                           <div className="or-content">
                             <p>Sign up with your email</p>
                             <a href="#" className="default-btn reverse"><img src="assets/images/login/google.png" alt="google" /> <span>Sign Up with Google</span></a>
-                            <p className="or-signup"> Don't have an account? <a href="register.html">Sign up here</a></p>
+                            <p className="or-signup"> Don't have an account? <a href="register">Sign up here</a></p>
                           </div>
                         </form>
                       </div>

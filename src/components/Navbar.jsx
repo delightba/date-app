@@ -52,8 +52,7 @@ function Navbar() {
                       <Link to="/pricing">Pricing</Link>
                     </li>
                     <li>
-                    </li>
-                    <li>
+                      <Link to="/dashboard">Dashboard</Link> {/* Add Dashboard link */}
                     </li>
                     <li>
                       <Link to="/about">About</Link>
