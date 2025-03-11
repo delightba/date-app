@@ -1,0 +1,69 @@
+.payment {
+  /* ...existing code... */
+}
+
+.profile-management .conversation-controls button:hover {
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  background-color: #e74c3c;
+  padding: 10px 20px;
+}
+
+.profile-management .conversation-controls button {
+  justify-content: space-between;
+  display: flex;
+  margin-top: 20px;
+}
+
+.profile-management .conversation-controls {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.profile-management .profile-unlocked {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.profile-management .profile-locked {
+  background-color: #2980b9;
+}
+
+.profile-management button:hover {
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  background-color: #3498db;
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+.profile-management button {
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.profile-management img {
+  margin-top: 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+.profile-management textarea {
+  margin-top: 10px;
+  display: block;
+}
+
+.profile-management input,
+.profile-management label {
+  margin-top: 10px;
+  display: block;
+}
+
+.profile-management {
+  padding: 20px;
+}

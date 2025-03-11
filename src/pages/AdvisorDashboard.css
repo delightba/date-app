@@ -1,0 +1,20 @@
+.advisor-dashboard {
+  padding: 20px;
+}
+
+.section {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.section h6 {
+  margin-bottom: 10px;
+}
+
+.section button {
+  margin-right: 10px;
+}
+
+.section .MuiList-root {
+  margin-top: 10px;
+}
